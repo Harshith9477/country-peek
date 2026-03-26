@@ -8,7 +8,7 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // 🔥 DEBOUNCE
+  // 🔥 Debounce logic
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(search);
@@ -17,7 +17,7 @@ function Home() {
     return () => clearTimeout(timer);
   }, [search]);
 
-  // 🔥 FETCH DATA
+  // 🔥 Fetch data
   useEffect(() => {
     setLoading(true);
     setError("");
@@ -49,10 +49,10 @@ function Home() {
         onChange={(e) => setSearch(e.target.value)}
       />
 
-      {/* 🔥 LOADING */}
+      {/* Loading */}
       {loading && <p>Loading...</p>}
 
-      {/* 🔥 ERROR */}
+      {/* Error */}
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       <div className="cards-grid">
