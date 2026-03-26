@@ -5,20 +5,15 @@ function CountryCard({ country }) {
 
   return (
     <Link to={`/country/${cca3}`} className="card">
-      
-      <img
-        src={flags?.svg}
-        alt={name?.common}
-        className="card__flag"
-      />
+      <img src={flags.png} alt={name.common} className="card__flag" />
 
       <div className="card__body">
-        <h3 className="card__name">{name?.common}</h3>
-        <p><b>Population:</b> {population?.toLocaleString()}</p>
-        <p><b>Region:</b> {region}</p>
-        <p><b>Capital:</b> {capital?.[0] || "N/A"}</p>
-      </div>
+        <h3 className="card__name">{name.common}</h3>
 
+        <p><b>Population:</b> {population.toLocaleString()}</p>
+        <p><b>Region:</b> {region}</p>
+        <p><b>Capital:</b> {capital?.[0]}</p>
+      </div>
     </Link>
   );
 }
