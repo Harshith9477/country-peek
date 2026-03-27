@@ -8,16 +8,16 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // 🔥 Debounce logic
+  // 🔥 CORRECT DEBOUNCE (400ms)
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(search);
-    }, 500);
+    }, 400); // ✅ MUST BE 400ms
 
     return () => clearTimeout(timer);
   }, [search]);
 
-  // 🔥 Fetch data
+  // 🔥 FETCH DATA
   useEffect(() => {
     setLoading(true);
     setError("");
@@ -36,6 +36,7 @@ function Home() {
       });
   }, []);
 
+  // 🔥 FILTER USING DEBOUNCED VALUE
   const filtered = countries.filter((c) =>
     c.name.common.toLowerCase().includes(debouncedSearch.toLowerCase())
   );

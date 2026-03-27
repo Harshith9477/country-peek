@@ -7,7 +7,7 @@ function CountryCard({ country }) {
     <Link to={`/country/${cca3}`} className="card">
       <img
         src={flags?.png}
-        alt={name?.common || "Country flag"}
+        alt={name?.common}
         className="card__flag"
       />
 
